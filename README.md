@@ -8,3 +8,4 @@ Commands:
 .alladmin
 .decoall
 .down
+.delchannels
